@@ -1,0 +1,55 @@
+<div class="container main-container">
+    <h3>Interpolation</h3>
+    <!--<p>O número de cliques é {{ contadorClique }}</p>-->
+
+    <!--este código permite que a classe da tag html seja alterado dinamicamente pelo angular-->
+    <p [ngClass]="{
+        'text-secondary': contadorClique < 3,
+        'text-success': contadorClique >= 3,
+        'text-warning': contadorClique >= 5,
+        'text-danger': contadorClique > 9
+    }">O numero de cliques é : {{ contadorClique }} </p>
+
+    <br>
+    <br>
+
+
+    <h3>Property Binding</h3>
+    <button class="btn btn-info" [disabled]= "contadorClique >= 10">INFO</button>
+    <br>
+    <br>
+    <img [src]="urlImagem" height="50px" width="50px">
+    <br>
+    <br>
+
+
+    <h3>Event Binding</h3>
+    <button class="btn btn-warning" (click)='adicionarClique()'>Clique-me</button>&nbsp;
+    <button class="btn btn-danger" (click)='zerarContador()' [disabled]='contadorClique < 10'>Zerar Contador</button>
+    <br>
+    <br>
+
+
+    <h3>Two-way Binding</h3>
+    <br>
+    <!--
+    <h5>Jeito quase two-way binding</h5>     
+    <input type="text" (keyup)='KeyUp($event)' placeholder="Digite o seu nome">
+    <br>
+    <br>
+    <label>Seu nome é: {{ nome }}</label>
+    <br>
+    <h5>Jeito full two-way binding</h5>
+    -->    
+    <!--Importar FormsModule e declarar nos imports no arquivo app.module -->
+    <!--
+    <input type="text" [ngModel]="nome" (ngModelChange)= 'nome = $event' placeholder="Digite o seu nome"> 
+    <br>
+    <br>
+    <label>Seu nome é: {{ nome }}</label>
+    -->
+    <input type="text" [(ngModel)]="nome" placeholder="Digite o seu nome"> 
+    <br>
+    <br>
+    <label class= "{{ nome }}">Seu nome é: {{ nome }}</label>
+</div>
